@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-export default function ComponentsLayoutHeader() : JSX.Element {
+export default function LayoutHeader() : JSX.Element {
     return (
         <header className='flex'>
             <nav>

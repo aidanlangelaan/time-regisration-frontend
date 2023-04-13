@@ -1,10 +1,10 @@
 import { Outlet } from "react-router-dom";
-import ComponentsLayoutHeader from './Navigation/header';
+import LayoutHeader from './Navigation/header';
 
 export default function Layout(): JSX.Element {
     return (
         <div >
-            <ComponentsLayoutHeader />
+            <LayoutHeader />
 
             <div id="page-content">
                 <Outlet />
