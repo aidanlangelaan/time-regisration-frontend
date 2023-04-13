@@ -1,16 +1,12 @@
-import { Link, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import ComponentsLayoutHeader from './Navigation/header';
 
 export default function Layout(): JSX.Element {
     return (
-        <div>
-            <div>
-                <h1>Time Registration</h1>
-                <Link to="/">Home</Link>
-                <Link to="/about">About</Link>
-                <Link to="/blaat">Blaat</Link>
-            </div>
+        <div >
+            <ComponentsLayoutHeader />
 
-            <div id="content">
+            <div id="page-content">
                 <Outlet />
             </div>
         </div>
