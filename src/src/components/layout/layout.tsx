@@ -1,14 +1,17 @@
 import { Outlet } from "react-router-dom";
-import LayoutHeader from './Navigation/header';
+import LayoutHeader from "./Navigation/header";
 
-export default function Layout(): JSX.Element {
-    return (
-        <div >
-            <LayoutHeader />
+interface ILayout {
+	outlet?: any;
+}
 
-            <div id="page-content">
-                <Outlet />
-            </div>
-        </div>
-    );
+export default function Layout(props: ILayout): JSX.Element {
+	return (
+		<div>
+			<LayoutHeader />
+			{/* hack to allow error page be rendered inside the layout
+            https://github.com/remix-run/react-router/discussions/9553#discussioncomment-4907035 */}
+			<div id="page-content">{props.outlet ? props.outlet : <Outlet />}</div>
+		</div>
+	);
 }

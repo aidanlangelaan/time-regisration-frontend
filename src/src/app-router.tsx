@@ -1,27 +1,20 @@
 import Layout from "components/layout/layout";
-import PagesNotFound from "pages/NotFound/not-found";
-import PagesAbout from "pages/about/about";
-import PagesHome from "pages/home/home";
-import { Suspense } from "react";
-import { Route, Routes } from "react-router-dom";
+import NotFoundPage from "pages/NotFound/not-found";
+import HomePage from "pages/home/home";
+import SettingsPage from "pages/settings/settings";
+import { createBrowserRouter } from "react-router-dom";
 
-export default function AppRouter(): JSX.Element {
-    return (
-        <>
-            <Routes>
-                <Route path="/" element={<Layout />}>
-                    <Route index element={<PagesHome />} />
-                    <Route
-                        path="about"
-                        element={
-                            <Suspense fallback={<>...</>}>
-                                <PagesAbout />
-                            </Suspense>
-                        }
-                    />
-                    <Route path="*" element={<PagesNotFound />} />
-                </Route>
-            </Routes>
-        </>
-    );
-}
+const AppRouter = () =>
+	createBrowserRouter([
+		{
+			path: "/",
+			element: <Layout />,
+			errorElement: <Layout outlet={<NotFoundPage />} />,
+			children: [
+				{ index: true, element: <HomePage /> },
+				{ path: "settings", element: <SettingsPage /> },
+			],
+		},
+	]);
+
+export default AppRouter;

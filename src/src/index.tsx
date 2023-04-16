@@ -4,11 +4,13 @@ import "./assets/css/app.scss";
 import App from "./app";
 import reportWebVitals from "./reportWebVitals";
 import { FluentProvider, webDarkTheme } from '@fluentui/react-components';
+import ApplyToBody from 'hooks/apply-to-body';
 
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 root.render(
     <React.StrictMode>
         <FluentProvider theme={webDarkTheme}>
+            <ApplyToBody />
             <App />
         </FluentProvider>
     </React.StrictMode>
