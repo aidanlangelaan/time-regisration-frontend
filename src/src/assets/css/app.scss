@@ -3,25 +3,25 @@
 @tailwind utilities;
 
 * {
-    box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 html,
 body,
 #root {
-    height: 100%;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+	height: 100%;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-        sans-serif;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+		sans-serif;
 
-    .fui-FluentProvider {
-        background: var(--colorNeutralBackgroundInverted) !important;
-        height: 100%;
-    }
+	.fui-FluentProvider {
+		background: var(--colorNeutralBackground) !important;
+		height: 100%;
+	}
 }
 
 @import "layout.scss";

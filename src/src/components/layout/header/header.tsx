@@ -1,7 +1,7 @@
 import { Avatar, Button } from "@fluentui/react-components";
 import { DataBarVertical24Regular, Settings24Regular } from "@fluentui/react-icons";
 import { Link } from "react-router-dom";
-import LayoutBreadcrumbs from "../navigation/breadcrumbs/breadcrumbs";
+import LayoutBreadcrumbs from "../breadcrumbs/breadcrumbs";
 import "./header.style.scss";
 
 export default function LayoutHeader(): JSX.Element {
