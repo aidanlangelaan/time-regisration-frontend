@@ -1,6 +1,8 @@
 import { Avatar, Button } from "@fluentui/react-components";
 import { DataBarVertical24Regular, Settings24Regular } from "@fluentui/react-icons";
 import { Link } from "react-router-dom";
+import LayoutBreadcrumbs from "../navigation/breadcrumbs/breadcrumbs";
+import "./header.style.scss";
 
 export default function LayoutHeader(): JSX.Element {
 	return (
@@ -13,6 +15,8 @@ export default function LayoutHeader(): JSX.Element {
 					</div>
 
 					<span className="vertical-devider"></span>
+
+					<LayoutBreadcrumbs />
 				</div>
 
 				<div className="flex-container right">

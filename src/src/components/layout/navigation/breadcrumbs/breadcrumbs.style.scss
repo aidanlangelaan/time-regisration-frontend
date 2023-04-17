@@ -1,0 +1,22 @@
+#breadcrumbs {
+	display: block !important;
+	padding: 0 20px;
+
+	.splitter {
+		margin: 0 4px 0 1px;
+		svg {
+			height: 10px;
+			display: inline-block;
+		}
+	}
+
+	a {
+		color: var(--colorNeutralForeground2Link);
+		text-decoration: underline;
+
+		&:hover,
+		&:active {
+			color: var(--colorNeutralForeground2LinkHover);
+		}
+	}
+}
