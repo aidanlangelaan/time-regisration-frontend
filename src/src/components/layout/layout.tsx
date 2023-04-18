@@ -2,6 +2,7 @@ import LayoutHeader from "./header/header";
 import LayoutSidebar from "./sidebar/sidebar";
 import { Outlet } from "react-router-dom";
 import SetPageTitle from "hooks/set-page-title";
+import localforage from "localforage";
 import { useState } from "react";
 
 interface ILayout {
@@ -9,8 +10,16 @@ interface ILayout {
 }
 
 export default function Layout(props: ILayout): JSX.Element {
-	const [menuMode, setmenuMode] = useState("open");
-	const toggleMenuMode = () => setmenuMode(menuMode == "collapsed" ? "open" : "collapsed");
+	const [menuMode, setmenuMode] = useState("");
+	localforage.getItem("menuMode").then((value) => {
+		if (value) setmenuMode(value as string);
+	});
+
+	const toggleMenuMode = () => {
+		const mode = menuMode == "collapsed" ? "open" : "collapsed";
+		localforage.setItem("menuMode", mode);
+		setmenuMode(mode);
+	};
 
 	return (
 		<div>
