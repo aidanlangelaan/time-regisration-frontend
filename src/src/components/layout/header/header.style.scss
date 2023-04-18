@@ -19,6 +19,14 @@ header {
 				border: none;
 				border-radius: 0;
 				height: 100%;
+				background-color: #fa6900;
+
+				&:hover,
+				&:focus,
+				&:active {
+					border: none;
+					border-radius: 0;
+				}
 			}
 
 			#logo {

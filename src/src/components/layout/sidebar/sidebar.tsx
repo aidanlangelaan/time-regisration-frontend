@@ -1,11 +1,14 @@
-import { Link, RouteObject, useLocation } from "react-router-dom";
 import "./sidebar.style.scss";
+
+import { Link, RouteObject, useLocation } from "react-router-dom";
+
 import AppRoutes from "global/routes";
 
 interface INavigationRoutes {
 	id: string;
 	path: string;
 	title: string;
+	icon: JSX.Element;
 	children?: INavigationRoutes[];
 }
 
@@ -15,11 +18,13 @@ export default function LayoutSidebar(): JSX.Element {
 	const getRoutes = (routes: RouteObject[]): INavigationRoutes[] => {
 		return routes
 			.filter((route) => Boolean((route.handle as any)?.title))
+			.filter((route) => Boolean((route.handle as any)?.displayInSidebar))
 			.map((route) => {
 				const mappedRoute = {
 					id: route.id,
 					path: route.path,
 					title: (route.handle as any).title(),
+					icon: (route.handle as any).icon(),
 					children: [],
 				} as INavigationRoutes;
 
@@ -30,20 +35,23 @@ export default function LayoutSidebar(): JSX.Element {
 	};
 
 	return (
-		<ul>
-			{getRoutes(routes).map((route) => {
-				const currentLocation = useLocation();
-				const path = "/" + (route.path || "");
-				const className = currentLocation.pathname.split("/")[1] === path.split("/")[1] ? "active" : "";
+		<div id="sidebar">
+			<ul>
+				{getRoutes(routes).map((route) => {
+					const currentLocation = useLocation();
+					const path = "/" + (route.path || "");
+					const className = currentLocation.pathname.split("/")[1] === path.split("/")[1] ? "active" : "";
 
-				return (
-					<li key={route.id}>
-						<Link to={path} className={className}>
-							{route.title}
-						</Link>
-					</li>
-				);
-			})}
-		</ul>
+					return (
+						<li key={route.id}>
+							<Link to={path} className={className}>
+								<span className="menu-icon">{route.icon}</span>
+								<span className="menu-text">{route.title}</span>
+							</Link>
+						</li>
+					);
+				})}
+			</ul>
+		</div>
 	);
 }
