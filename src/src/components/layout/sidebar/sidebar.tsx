@@ -12,7 +12,8 @@ interface INavigationRoutes {
 	children?: INavigationRoutes[];
 }
 
-export default function LayoutSidebar(): JSX.Element {
+export default function LayoutSidebar(props: { menuMode: string }): JSX.Element {
+	const { menuMode } = props;
 	const routes = AppRoutes()[0].children as RouteObject[];
 
 	const getRoutes = (routes: RouteObject[]): INavigationRoutes[] => {
@@ -35,7 +36,7 @@ export default function LayoutSidebar(): JSX.Element {
 	};
 
 	return (
-		<div id="sidebar">
+		<div id="sidebar" className={menuMode}>
 			<ul>
 				{getRoutes(routes).map((route) => {
 					const currentLocation = useLocation();

@@ -5,6 +5,11 @@
 	flex-shrink: 0;
 	background: #fa6900;
 
+	&.collapsed {
+		flex: 0 0 68px;
+		overflow: hidden;
+	}
+
 	ul {
 		display: flex;
 		flex-wrap: nowrap;

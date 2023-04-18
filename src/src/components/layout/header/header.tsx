@@ -1,15 +1,20 @@
-import { Avatar, Button } from "@fluentui/react-components";
-import { DataBarVertical24Regular, Settings24Regular } from "@fluentui/react-icons";
-import { Link } from "react-router-dom";
-import LayoutBreadcrumbs from "../breadcrumbs/breadcrumbs";
 import "./header.style.scss";
 
-export default function LayoutHeader(): JSX.Element {
+import { Avatar, Button } from "@fluentui/react-components";
+import { DataBarVertical24Regular, Settings24Regular } from "@fluentui/react-icons";
+
+import LayoutBreadcrumbs from "../breadcrumbs/breadcrumbs";
+import { Link } from "react-router-dom";
+import { MouseEventHandler } from "react";
+
+export default function LayoutHeader(props: { onMenuButtonClick: MouseEventHandler }): JSX.Element {
+	const { onMenuButtonClick } = props;
+
 	return (
 		<header>
 			<nav className="flex-container">
 				<div className="flex-container left">
-					<Button icon={<DataBarVertical24Regular />} />
+					<Button icon={<DataBarVertical24Regular />} onClick={onMenuButtonClick} />
 					<div id="logo">
 						<Link to="/">Time Registration</Link>
 					</div>
