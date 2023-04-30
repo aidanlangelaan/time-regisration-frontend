@@ -1,6 +1,8 @@
 import { CreateProject, Project, UpdateProject } from "./project-service.types";
 
 class ProjectServiceInternal {
+	BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
 	static instance = null as unknown as ProjectServiceInternal;
 
 	static getInstance() {
@@ -12,15 +14,15 @@ class ProjectServiceInternal {
 	}
 
 	getProjects(): Promise<Project[]> {
-		return fetch("http://localhost:3001/projects").then((response) => response.json());
+		return fetch(`${this.BASE_URL}/projects`).then((response) => response.json());
 	}
 
 	getProject(id: string): Promise<Project> {
-		return fetch(`http://localhost:3001/projects/${id}`).then((response) => response.json());
+		return fetch(`${this.BASE_URL}/projects/${id}`).then((response) => response.json());
 	}
 
 	createProject(project: CreateProject): Promise<Project> {
-		return fetch(`http://localhost:3001/projects`, {
+		return fetch(`${this.BASE_URL}/projects`, {
 			method: "POST",
 			body: JSON.stringify({ ...project, id: Math.floor(Math.random() * 25) }),
 			headers: {
@@ -30,7 +32,7 @@ class ProjectServiceInternal {
 	}
 
 	updateProject(id: string, project: UpdateProject): Promise<Project> {
-		return fetch(`http://localhost:3001/projects/${id}`, {
+		return fetch(`${this.BASE_URL}/projects/${id}`, {
 			method: "PUT",
 			body: JSON.stringify(project),
 			headers: {
@@ -40,7 +42,7 @@ class ProjectServiceInternal {
 	}
 
 	deleteProject(id: string): void {
-		fetch(`http://localhost:1234/projects/${id}`, {
+		fetch(`${this.BASE_URL}projects/${id}`, {
 			method: "DELETE",
 		});
 	}
