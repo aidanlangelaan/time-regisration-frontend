@@ -1,7 +1,7 @@
 import "./header.style.scss";
 
 import { Avatar, Button } from "@fluentui/react-components";
-import { DataBarVertical24Regular, Settings24Regular } from "@fluentui/react-icons";
+import { GridDots24Filled, Settings24Regular } from "@fluentui/react-icons";
 
 import LayoutBreadcrumbs from "../breadcrumbs/breadcrumbs";
 import { Link } from "react-router-dom";
@@ -14,7 +14,7 @@ export default function LayoutHeader(props: { onMenuButtonClick: MouseEventHandl
 		<header>
 			<nav className="flex-container">
 				<div className="flex-container left">
-					<Button icon={<DataBarVertical24Regular />} onClick={onMenuButtonClick} />
+					<Button icon={<GridDots24Filled />} onClick={onMenuButtonClick} />
 					<div id="logo">
 						<Link to="/">Time Registration</Link>
 					</div>
