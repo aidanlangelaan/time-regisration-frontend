@@ -1,4 +1,4 @@
-import { ThemeContext, ThemeMode } from "global/theme/theme-context";
+import { ThemeContext, ThemeMode } from "theme/theme-context";
 import { useContext, useEffect } from "react";
 
 export default function ApplyToBody(): JSX.Element {

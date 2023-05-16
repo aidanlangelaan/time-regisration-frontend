@@ -2,6 +2,7 @@ import { FluentProvider, FluentProviderProps } from "@fluentui/react-components"
 import { useEffect, useState } from "react";
 import { ThemeContext, ThemeMode } from "./theme-context";
 import { themes } from "./themes";
+import { localStorageProvider } from "utility/local-storage-provider";
 
 const getBrowserDefault = () => window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
 const userDefaultPreferredThemeMode = () => (getBrowserDefault() ? ThemeMode.Dark : ThemeMode.Light);
@@ -9,16 +10,24 @@ const userDefaultPreferredThemeMode = () => (getBrowserDefault() ? ThemeMode.Dar
 export const ThemeProvider = (props: FluentProviderProps): JSX.Element => {
 	const [theme, setTheme] = useState<ThemeMode>(ThemeMode.Default);
 
-	useEffect(() => {
-		setTheme(userDefaultPreferredThemeMode());
-	}, []);
+	const selectedTheme = localStorageProvider<string | undefined>("theme");
 
-	const toggleTheme = (selectedTheme: ThemeMode) => {
-		if (selectedTheme === ThemeMode.Default) {
-			selectedTheme = userDefaultPreferredThemeMode();
+	useEffect(() => {
+		const theme = selectedTheme.get();
+		if (theme) {
+			setTheme(theme as ThemeMode);
+		} else {
+			setTheme(userDefaultPreferredThemeMode());
+		}
+	}, [selectedTheme]);
+
+	const toggleTheme = (theme: ThemeMode) => {
+		if (theme === ThemeMode.Default) {
+			theme = userDefaultPreferredThemeMode();
 		}
 
-		setTheme(selectedTheme);
+		setTheme(theme);
+		selectedTheme.set(theme);
 	};
 
 	return (

@@ -1,4 +1,4 @@
-import { ThemeContext, ThemeMode } from "global/theme/theme-context";
+import { ThemeContext, ThemeMode } from "theme/theme-context";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 

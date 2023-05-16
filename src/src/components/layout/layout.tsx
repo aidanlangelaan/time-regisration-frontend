@@ -2,22 +2,27 @@ import LayoutHeader from "./header/header";
 import LayoutSidebar from "./sidebar/sidebar";
 import { Outlet } from "react-router-dom";
 import SetPageTitle from "hooks/set-page-title";
-import localforage from "localforage";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { localStorageProvider } from "utility/local-storage-provider";
 
 interface ILayout {
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	outlet?: any;
 }
 
 export default function Layout(props: ILayout): JSX.Element {
 	const [menuMode, setmenuMode] = useState("");
-	localforage.getItem("menuMode").then((value) => {
-		if (value) setmenuMode(value as string);
-	});
+
+	const selectedMenuMode = localStorageProvider<string | undefined>("menuMode");
+
+	useEffect(() => {
+		const mode = selectedMenuMode.get();
+		if (mode) setmenuMode(mode);
+	}, [selectedMenuMode]);
 
 	const toggleMenuMode = () => {
 		const mode = menuMode == "collapsed" ? "open" : "collapsed";
-		localforage.setItem("menuMode", mode);
+		selectedMenuMode.set(mode);
 		setmenuMode(mode);
 	};
 

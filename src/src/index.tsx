@@ -4,7 +4,7 @@ import "./assets/css/app.scss";
 import App from "./app";
 import reportWebVitals from "./reportWebVitals";
 import ApplyToBody from "hooks/apply-to-body";
-import { ThemeProvider } from "global/theme/theme-provider";
+import { ThemeProvider } from "theme/theme-provider";
 
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 root.render(
