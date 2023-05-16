@@ -11,12 +11,6 @@
 	}
 
 	a {
-		color: var(--colorNeutralForeground2Link);
 		text-decoration: underline;
-
-		&:hover,
-		&:active {
-			color: var(--colorNeutralForeground2LinkHover);
-		}
 	}
 }

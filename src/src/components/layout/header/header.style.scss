@@ -1,5 +1,5 @@
 header {
-	background-color: var(--colorNeutralBackground5);
+	background: var(--colorNeutralBackground3);
 
 	> nav {
 		height: 48px;
@@ -37,7 +37,7 @@ header {
 			.vertical-devider {
 				height: 100%;
 				width: 2px;
-				background-color: var(--colorNeutralBackground1);
+				background-color: var(--colorNeutralBackground1Hover);
 			}
 		}
 

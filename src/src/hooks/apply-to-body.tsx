@@ -1,15 +1,13 @@
-import { useThemeClassName } from '@fluentui/react-components';
-import { useEffect } from 'react';
+import { ThemeContext, ThemeMode } from "global/theme/theme-context";
+import { useContext, useEffect } from "react";
 
 export default function ApplyToBody(): JSX.Element {
-    const classes = useThemeClassName();
+	const themeContext = useContext(ThemeContext);
 
-    useEffect(() => {
-        const classList = classes.split(" ");
-        document.body.classList.add(...classList);
+	useEffect(() => {
+		document.body.classList.remove(ThemeMode.Default, ThemeMode.Light, ThemeMode.Dark);
+		document.body.classList.add(themeContext.theme);
+	}, [themeContext.theme]);
 
-        return () => document.body.classList.remove(...classList);
-    }, [classes]);
-
-    return <></>
+	return <></>;
 }
