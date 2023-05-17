@@ -5,7 +5,7 @@ export default function NotFoundPage(): JSX.Element {
 		<div>
 			<h2>Nothing to see here!</h2>
 			<p>
-				<Link to="/">Go to the home page</Link>
+				<Link to="/">Return to the dashboard</Link>
 			</p>
 		</div>
 	);

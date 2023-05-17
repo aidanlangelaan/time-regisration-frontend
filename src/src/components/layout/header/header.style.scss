@@ -1,5 +1,6 @@
 header {
 	background: var(--colorNeutralBackground3);
+	box-shadow: var(--shadow4);
 
 	> nav {
 		height: 48px;
@@ -19,7 +20,8 @@ header {
 				border: none;
 				border-radius: 0;
 				height: 100%;
-				background-color: #fa6900;
+				background-color: var(--colorBrandBackgroundStatic);
+				color: white;
 
 				&:hover,
 				&:focus,
@@ -37,7 +39,7 @@ header {
 			.vertical-devider {
 				height: 100%;
 				width: 2px;
-				background-color: var(--colorNeutralBackground1Hover);
+				background-color: var(--colorBrandForegroundOnLight);
 			}
 		}
 

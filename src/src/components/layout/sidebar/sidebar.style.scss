@@ -1,9 +1,9 @@
 #sidebar {
-	flex: 0 0 244px;
+	flex: 0 0 243px;
 	height: 100vh;
 	flex-grow: 0;
 	flex-shrink: 0;
-	background: #fa6900;
+	background: var(--colorBrandBackgroundStatic);
 
 	&.collapsed {
 		flex: 0 0 47px;
@@ -26,6 +26,7 @@
 				flex-direction: row;
 				align-items: center;
 				flex-wrap: nowrap;
+				color: white;
 
 				.menu-icon {
 					width: 47px;
@@ -47,6 +48,7 @@
 				&:focus,
 				&:active {
 					background-color: var(--colorNeutralBackground1Hover);
+					color: inherit;
 				}
 			}
 		}

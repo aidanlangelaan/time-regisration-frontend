@@ -1,12 +1,12 @@
-import { Folder24Regular, Home24Regular } from "@fluentui/react-icons";
+import { Folder24Regular, Board24Regular } from "@fluentui/react-icons";
 
-import HomePage from "pages/home/home";
 import Layout from "components/layout/layout";
 import NotFoundPage from "pages/not-found/not-found";
 import ProjectListPage from "pages/project/project-list";
 import { RouteObject } from "react-router-dom";
 import SettingsPage from "pages/settings/settings";
 import TestPage from "pages/test/test";
+import DashboardPage from "pages/dashboard/dashboard";
 
 const AppRoutes = (): RouteObject[] => [
 	{
@@ -16,10 +16,10 @@ const AppRoutes = (): RouteObject[] => [
 		children: [
 			{
 				index: true,
-				element: <HomePage />,
+				element: <DashboardPage />,
 				handle: {
-					title: () => "Home",
-					icon: () => <Home24Regular />,
+					title: () => "Dashboard",
+					icon: () => <Board24Regular />,
 					displayInSidebar: true,
 				},
 			},
